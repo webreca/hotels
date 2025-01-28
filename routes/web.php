@@ -37,3 +37,6 @@ Route::get("signup", [SignupController::class, 'signup'])->name('signup');
 
 # Onboarding Save [Customer]
 Route::post("signup", [SignupController::class, 'register'])->name('signup.submit');
+
+# Profile Update [Customer]
+Route::post("profile", [HomeController::class, 'profile'])->name('profile');
