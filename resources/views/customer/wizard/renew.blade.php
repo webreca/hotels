@@ -37,11 +37,11 @@
         <main class="py-0">
             <section class="container mt-0 py-3">
                 <div class="row py-3">
-                    <div class="col-lg-12 mx-auto mb-3">
+                    <div class="col-lg-12 mx-auto mt-3">
                         <h3 class="fw-bold">Available plans</h3>
                     </div>
                     @foreach ($plans as $plan)
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 py-3">
                             <div class="card plan-card" style="border-top: 1px solid {{ $plan->color }} !important;">
                                 <div class="card-body">
                                     <div class="text-center">
@@ -59,8 +59,8 @@
                                                             </h4>
                                                         </td>
                                                         <td class="bg-transparent">
-                                                            <h6 class="mb-0 pb-0 text-white plan-title">{{ $benefit->title }}</h6>
-                                                            <p class="mt-0 pt-0 small text-light plan-description">
+                                                            <h6 class="mb-0 pb-0 plan-title">{{ $benefit->title }}</h6>
+                                                            <p class="mt-0 pt-0 small plan-description">
                                                                 {{ $benefit->description }}</p>
                                                         </td>
                                                     </tr>
@@ -69,11 +69,21 @@
                                         </table>
                                     </div>
                                     @php
-                                        $discount   = round($plan->discount_type == "flat" ? $plan->discount : $plan->price * $plan->discount / 100);
-                                        $total      = round($plan->price - $discount);
+                                        $discount = round(
+                                            $plan->discount_type == 'flat'
+                                                ? $plan->discount
+                                                : ($plan->price * $plan->discount) / 100,
+                                        );
+                                        $total = round($plan->price - $discount);
                                     @endphp
-                                    <div class="w-100">
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#breakdown-modal" class="btn plan-button text-center" style="background-color: {{ $plan->color }}"><span class="breakdown-button">Renew to wizard {{ $plan->name }} for {{ config('app.currency_symbol') }}{{ $total }} <span class="text-decoration-line-through ms-1">{{ config('app.currency_symbol') }}{{ $plan->price }}</span></span></button>
+                                    <div class="plan-button-div mt-3">
+                                        <button type="button" onclick="updateBreakDown({{ json_encode($plan) }})"
+                                            data-bs-toggle="modal" data-bs-target="#breakdown-modal"
+                                            class="btn plan-button text-center"
+                                            style="background-color: {{ $plan->color }}"><span
+                                                class="breakdown-button">Renew to wizard {{ $plan->name }} for
+                                                {{ config('app.currency_symbol') }}{{ $total }} <span
+                                                    class="text-decoration-line-through ms-1">{{ config('app.currency_symbol') }}{{ $plan->price }}</span></span></button>
                                     </div>
                                 </div>
                             </div>
@@ -85,6 +95,23 @@
     </div>
     @include('customer.wizard.breakdown-popup')
     @include('guest.partials.scripts')
+    <script>
+        updateBreakDown = (plan) => {
+            let discount_text = '';
+            $("#breakdown-amount").text('₹' + Math.round(plan.price));
+            if (plan.discount_type == "flat") {
+                discount_text = plan.discount_name+' (₹' + Math.round(plan.discount) + ')';
+                $("#breakdown-discount-type").text(discount_text);
+                $("#breakdown-discount").text('- ₹' + Math.round(plan.discount));
+                $("#breakdown-payable").text('₹' + (Math.round(plan.price - plan.discount)));
+            } else {
+                discount_text = plan.discount_name+' (' + Math.round(plan.discount) + ' % Off)';
+                $("#breakdown-discount-type").text(discount_text);
+                $("#breakdown-discount").text('- ₹' + Math.round(plan.price * plan.discount / 100));
+                $("#breakdown-payable").text('₹' + (plan.price - Math.round(plan.price * plan.discount / 100)));
+            }
+        }
+    </script>
 </body>
 
 </html>

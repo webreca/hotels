@@ -68,7 +68,18 @@ body {
     border-bottom: 3px solid #d81f45;
     outline: none;
 }
-
+.border-bottom-none{
+    border-bottom: none !important;
+}
+.border-top-none{
+    border-top: none !important;
+}
+.border-left-none{
+    border-left: none !important;
+}
+.border-right-none{
+    border-right: none !important;
+}
 .input:nth-child(1) {
     cursor: pointer;
     pointer-events: all;
@@ -530,7 +541,6 @@ p.no-span:after {
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    max-width: 360px !important;
     min-height: 764px !important;
 }
 
@@ -554,10 +564,15 @@ p.no-span:after {
     letter-spacing: 0.2px;
     color: rgba(255, 255, 255, 0.5);
 }
+.plan-button-div{
+    vertical-align:bottom;
+}
 .plan-button{
     position: absolute;
-    bottom: 12px;
-    left: 28px;
+    bottom: 0px;
+    margin: 2px;
+    margin-bottom: 20px;
+    width: 92.5%;
 }
 .breakdown-button{
     font-weight: 500 !important;
