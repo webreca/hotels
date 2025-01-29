@@ -22,7 +22,7 @@ class PlanSeeder extends Seeder
             'discount_name' => 'Early Bird Discount',
             'discount'      => 50,
             'validity'      => 6,
-            'image'         => 'bluee-plan.png',
+            'image'         => 'blue-plan.png',
             'color'         => '#2296D7',
             'active'        => 'Yes',
         ]);

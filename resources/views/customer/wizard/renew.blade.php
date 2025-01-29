@@ -45,8 +45,9 @@
                             <div class="card plan-card" style="border-top: 1px solid {{ $plan->color }} !important;">
                                 <div class="card-body">
                                     <div class="text-center">
-                                        <span class="badge text-dark"
-                                            style="background-color: {{ $plan->color }}">{{ Str::upper($plan->name) }}</span>
+                                        <img src="{{ asset('images/'.$plan->image) }}" alt="{{ $plan->image }}" width="36px">
+                                        <h6 class="mt-2"><span class="badge text-dark"
+                                            style="background-color: {{ $plan->color }}">{{ Str::upper($plan->name) }}</span></h6>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-borderless borderless mt-5">
@@ -54,6 +55,7 @@
                                                 @foreach ($plan->benefits as $benefit)
                                                     <tr>
                                                         <td class="bg-transparent">
+
                                                             <h4><i class="bi bi-check2 my-auto"
                                                                     style="color: {{ $plan->color }} !important;"></i>
                                                             </h4>
