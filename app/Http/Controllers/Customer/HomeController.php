@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
-use App\Models\User;
-use App\Models\UserOtp;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
+
 
 class HomeController extends Controller
 {
@@ -30,6 +27,6 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        return view('guest.dashboard.index', compact('user'));
+        return view('customer.dashboard.index', compact('user'));
     }
 }

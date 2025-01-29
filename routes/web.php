@@ -3,8 +3,9 @@
 use App\Http\Controllers\Customer\Authentication\CustomerController;
 use App\Http\Controllers\Customer\Authentication\LoginController;
 use App\Http\Controllers\Customer\Authentication\SignupController;
+use App\Http\Controllers\Customer\WizardController;
 use App\Http\Controllers\Guest\IndexController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Customer\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -50,3 +51,6 @@ Route::post("forgot-password", [CustomerController::class, 'forgotPassword'])->n
 
 #  Forgot Password Form [Resend OTP]
 Route::post("forgot-password/resend-otp", [CustomerController::class, 'resendOTP'])->name('forgot-password.resend-otp');
+
+# Wizard Renew [Customer]
+Route::get("wizard/renew", [WizardController::class, 'renew'])->name('wizard.renew');

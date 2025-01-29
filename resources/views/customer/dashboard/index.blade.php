@@ -10,21 +10,21 @@
             </div>
         </div>
         <div class="row py-3">
-            @include('guest.dashboard.sections.wizard')
+            @include('customer.dashboard.sections.wizard')
             @php
                 $balance = fake()->numberBetween(2000, 3000);
                 $expires = \Carbon\Carbon::now()->format('M d, Y');
                 $usable_this_month = $balance;
             @endphp
-            @include('guest.dashboard.sections.money')
+            @include('customer.dashboard.sections.money')
         </div>
         <div class="row py-3">
-            @include('guest.dashboard.sections.booking-history')
+            @include('customer.dashboard.sections.booking-history')
         </div>
         <div class="row py-3">
-            @include('guest.dashboard.sections.profile')
-            @include('guest.dashboard.sections.change-password')
-            @include('guest.dashboard.sections.forgot-password')
+            @include('customer.dashboard.sections.profile')
+            @include('customer.dashboard.sections.change-password')
+            @include('customer.dashboard.sections.forgot-password')
         </div>
     </section>
 @endsection

@@ -258,6 +258,10 @@ a.navbar-brand h2 {
     background-color: #d81f45 !important;
     color: #fff !important;
 }
+.bg-dark{
+    background-color: #000000 !important;
+    color: #fff !important;
+}
 
 .daterangepicker td.active,
 .daterangepicker td.active:hover {
@@ -442,4 +446,16 @@ p.no-span:after {
     box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
     border: solid 1px #d6d6d6 !important;
     min-height: 28.625rem !important;
+}
+.plan-card{
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.39);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.badge {
+    font-weight: 500 !important;
 }

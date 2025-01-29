@@ -8,7 +8,7 @@
                 will be entitled to additional discounts of up to {{ fake()->numberBetween(10, 20) }}% on
                 {{ config('app.name', 'OYO') }} Wizard member hotels and will also enjoy exclusive benefits with
                 our partner alliances.</p>
-            <a href="javascript:void(0)" class="btn btn-md btn-success fw-bold mb-4" id="wizard-button">
+            <a href="{{ route("wizard.renew") }}" class="btn btn-md btn-success fw-bold mb-4" id="wizard-button">
                 {{ __('Buy Membership') }}
             </a>
         </div>
