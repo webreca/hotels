@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-    <div class="card profile-card">
+    <div class="card profile-card pt-4">
         <div class="card-body">
             <h3 class="text-dark fw-bold py-3 float-start">{{ __('Edit Profile') }}</h3>
             <h3 class="py-3 float-end"><a href="javascript:void(0)" class="text-danger fw-bold text-decoration-none"

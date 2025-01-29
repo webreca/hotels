@@ -428,7 +428,7 @@ p.no-span:after {
     box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
     border: solid 1px #d6d6d6 !important;
 }
-.booking-history-card, .password-card, .profile-card{
+.booking-history-card{
     border-radius: 2px;
     box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
     border: solid 1px #d6d6d6 !important;
@@ -436,4 +436,10 @@ p.no-span:after {
 .money-wizard-list-item{
    min-height: 57.8px !important;
    padding: 5px !important;
+}
+.password-card, .profile-card{
+    border-radius: 2px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #d6d6d6 !important;
+    min-height: 28.625rem !important;
 }
