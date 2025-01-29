@@ -17,7 +17,7 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center money-wizard-list-item">
                     Usable This Month
                     <span class="fw-bold text-end">₹{{ $usable_this_month }} <br>
-                    <small class="text-muted">(max ₹25000 per month)</small></span>
+                        <small class="text-muted">(max ₹25000 per month)</small></span>
                 </li>
             </ul>
         </div>

@@ -1,4 +1,4 @@
-<div class="col-lg-6" id="change-password-div" @if (request()->query('tab') == 'verify-otp') style="display: none;" @endif>
+<div class="col-lg-6" id="forgot-password-div" @if (request()->query('tab') == 'verify-otp') @else style="display: none;" @endif>
     <div class="card password-card">
         <div class="card-body">
             <h3 class="text-dark fw-bold float-start py-3">{{ __('Change Password') }}</h3>
@@ -6,34 +6,30 @@
                     onclick="togglePasswordForm()"><i class="bi bi-pencil-square"></i></a></h3>
             <div class="clearfix"></div>
             <div class="table-responsive">
-                <form action="{{ route('password') }}" method="POST" id="password-form">
+                <form action="{{ route('forgot-password') }}" method="POST" id="forgot-password-form">
                     @csrf
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
                                 <td>
-                                    <label for="current_password"
-                                        class="form-label">{{ __('Current Password') }}</label>
-                                    <h6 class="fw-bold mt-0 pt-0 profile-text" id="password-text">
-                                        ●&nbsp;●&nbsp;●&nbsp;●&nbsp;●&nbsp;●&nbsp;●&nbsp;●
-                                    </h6>
-                                    <input id="current_password" type="password"
-                                        class="form-control password-field @error('current_password') is-invalid @enderror"
-                                        name="current_password" value="{{ old('current_password') }}"
-                                        style="display: none;">
-                                    @error('current_password')
+                                    <label for="otp" class="form-label">{{ __('Enter OTP') }}</label>
+
+                                    <input id="otp" type="text"
+                                        class="form-control @error('otp') is-invalid @enderror" name="otp"
+                                        value="{{ old('otp') }}" required>
+                                    @if (request()->query('tab') == 'verify-otp')
                                         <div class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Please enter correct OTP</strong>
                                         </div>
-                                    @enderror
+                                    @endif
                                 </td>
                             </tr>
-                            <tr class="password-field" style="display: none;">
+                            <tr class="password-field">
                                 <td>
-                                    <label for="new_password" class="form-label">{{ __('New Password') }}</label>
-                                    <input id="new_password" type="password"
+                                    <label for="forgot_new_password" class="form-label">{{ __('New Password') }}</label>
+                                    <input id="forgot_new_password" type="password"
                                         class="form-control profile-field @error('new_password') is-invalid @enderror"
-                                        name="new_password" value="{{ old('new_password') }}">
+                                        name="new_password" value="{{ old('new_password') }}" required>
                                     <span class="help-text text-sm text-muted small">Password should have atleast 8
                                         characters including 1 special character.</span>
                                     @error('new_password')
@@ -44,18 +40,22 @@
                                 </td>
                             </tr>
 
-                            <tr class="password-submit-button" style="display: none;">
+                            <tr class="forgot-password-submit-button">
                                 <td>
                                     <button type="submit" class="btn btn-md btn-success fw-bold"
-                                        id="password-submit-button">
+                                        id="forgot-password-submit-button">
                                         {{ __('Update') }}
                                     </button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="javascript:void(0)" class="text-danger bg-light" onclick="sendOTP()">Forgot
-                                        Password ?</a>
+                                    <p class="mt-3 mb-4 fw-bold fs-15"><a href="javascript:void(0)"
+                                            class="text-decoration-none text-danger bg-light" id="resend-code">Resend
+                                            Code
+                                            <span id="timer-text" style="display: none">in <span
+                                                    id="timer"></span></span></a>
+                                    </p>
                                 </td>
                             </tr>
                         </tbody>

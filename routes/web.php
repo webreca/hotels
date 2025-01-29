@@ -40,3 +40,12 @@ Route::post("signup", [SignupController::class, 'register'])->name('signup.submi
 
 # Profile Update [Customer]
 Route::post("profile", [HomeController::class, 'profile'])->name('profile');
+
+# Password Update [Customer]
+Route::post("password", [HomeController::class, 'password'])->name('password');
+
+# Forgot Password Update [Customer]
+Route::post("forgot-password", [HomeController::class, 'forgotPassword'])->name('forgot-password');
+
+#  Forgot Password Form [Resend OTP]
+Route::post("forgot-password/resend-otp", [HomeController::class, 'resendOTP'])->name('forgot-password.resend-otp');

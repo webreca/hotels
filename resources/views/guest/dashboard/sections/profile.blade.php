@@ -6,7 +6,7 @@
                     onclick="toggleProfileForm()"><i class="bi bi-pencil-square"></i></a></h3>
             <div class="clearfix"></div>
             <div class="table-responsive">
-                <form action="{{route('profile')}}" method="POST" id="profile-form">
+                <form action="{{ route('profile') }}" method="POST" id="profile-form">
                     @csrf
                     <table class="table table-borderless">
                         <tbody>
