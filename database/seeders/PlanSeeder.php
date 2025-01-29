@@ -23,7 +23,7 @@ class PlanSeeder extends Seeder
             'discount'      => 50,
             'validity'      => 6,
             'image'         => 'bluee-plan.png',
-            'color'         => 'rgb(34, 152, 218)',
+            'color'         => '#2296D7',
             'active'        => 'Yes',
         ]);
 
@@ -69,7 +69,7 @@ class PlanSeeder extends Seeder
             'discount'      => 50,
             'validity'      => 12,
             'image'         => 'silver-plan.png',
-            'color'         => 'rgb(255, 255, 255)',
+            'color'         => '#FAFAFA',
             'active'        => 'Yes',
         ]);
 
@@ -126,7 +126,7 @@ class PlanSeeder extends Seeder
             'discount'      => 50,
             'validity'      => 12,
             'image'         => 'gold-plan.png',
-            'color'         => 'rgb(223, 150, 65)',
+            'color'         => '#DA933F',
             'active'        => 'Yes',
         ]);
 

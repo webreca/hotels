@@ -37,15 +37,44 @@
         <main class="py-0">
             <section class="container mt-0 py-3">
                 <div class="row py-3">
-                    <div class="col-lg-12 mx-auto">
+                    <div class="col-lg-12 mx-auto mb-3">
                         <h3 class="fw-bold">Available plans</h3>
                     </div>
                     @foreach ($plans as $plan)
                         <div class="col-lg-4">
-                            <div class="card plan-card">
+                            <div class="card plan-card" style="border-top: 1px solid {{ $plan->color }} !important;">
                                 <div class="card-body">
-                                    <div class="text-center"><span
-                                            class="badge {{$plan->name == "Silver" ? "text-dark" : ""}}" style="background-color: {{ $plan->color }}">{{ $plan->name }}</span></div>
+                                    <div class="text-center">
+                                        <span class="badge text-dark"
+                                            style="background-color: {{ $plan->color }}">{{ Str::upper($plan->name) }}</span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless borderless mt-5">
+                                            <tbody>
+                                                @foreach ($plan->benefits as $benefit)
+                                                    <tr>
+                                                        <td class="bg-transparent">
+                                                            <h4><i class="bi bi-check2 my-auto"
+                                                                    style="color: {{ $plan->color }} !important;"></i>
+                                                            </h4>
+                                                        </td>
+                                                        <td class="bg-transparent">
+                                                            <h6 class="mb-0 pb-0 text-white plan-title">{{ $benefit->title }}</h6>
+                                                            <p class="mt-0 pt-0 small text-light plan-description">
+                                                                {{ $benefit->description }}</p>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    @php
+                                        $discount   = round($plan->discount_type == "flat" ? $plan->discount : $plan->price * $plan->discount / 100);
+                                        $total      = round($plan->price - $discount);
+                                    @endphp
+                                    <div class="plan-button d-grid gap-2">
+                                        <button class="btn" style="background-color: {{ $plan->color }}">Renew to wizard {{ $plan->name }} for {{ config('app.currency_symbol') }}{{ $total }} <span class="text-decoration-line-through ms-1">{{ config('app.currency_symbol') }}{{ $plan->price }}</span></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
