@@ -14,7 +14,7 @@
                                 <td>
                                     <label for="current_password"
                                         class="form-label">{{ __('Current Password') }}</label>
-                                    <h6 class="fw-bold mt-0 pt-0 profile-text" id="password-text">
+                                    <h6 class="fw-bold mt-0 pt-0 password-text">
                                         ●&nbsp;●&nbsp;●&nbsp;●&nbsp;●&nbsp;●&nbsp;●&nbsp;●
                                     </h6>
                                     <input id="current_password" type="password"
@@ -54,7 +54,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="javascript:void(0)" class="text-danger bg-light" onclick="sendOTP()">Forgot
+                                    <a href="javascript:void(0)" class="text-danger bg-light text-decoration-none" onclick="sendOTP()">Forgot
                                         Password ?</a>
                                 </td>
                             </tr>
