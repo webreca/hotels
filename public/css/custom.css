@@ -68,6 +68,9 @@ body {
     border-bottom: 3px solid #d81f45;
     outline: none;
 }
+.border-radius-none{
+    border-radius: 0 !important;
+}
 .border-bottom-none{
     border-bottom: none !important;
 }
