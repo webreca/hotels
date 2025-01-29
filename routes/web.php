@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Customer\Authentication\CustomerController;
 use App\Http\Controllers\Customer\Authentication\LoginController;
 use App\Http\Controllers\Customer\Authentication\SignupController;
 use App\Http\Controllers\Guest\IndexController;
@@ -39,13 +40,13 @@ Route::get("signup", [SignupController::class, 'signup'])->name('signup');
 Route::post("signup", [SignupController::class, 'register'])->name('signup.submit');
 
 # Profile Update [Customer]
-Route::post("profile", [HomeController::class, 'profile'])->name('profile');
+Route::post("profile", [CustomerController::class, 'profile'])->name('profile');
 
 # Password Update [Customer]
-Route::post("password", [HomeController::class, 'password'])->name('password');
+Route::post("password", [CustomerController::class, 'password'])->name('password');
 
 # Forgot Password Update [Customer]
-Route::post("forgot-password", [HomeController::class, 'forgotPassword'])->name('forgot-password');
+Route::post("forgot-password", [CustomerController::class, 'forgotPassword'])->name('forgot-password');
 
 #  Forgot Password Form [Resend OTP]
-Route::post("forgot-password/resend-otp", [HomeController::class, 'resendOTP'])->name('forgot-password.resend-otp');
+Route::post("forgot-password/resend-otp", [CustomerController::class, 'resendOTP'])->name('forgot-password.resend-otp');

@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('plan_benefits', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('plan_id')->nullable();
+            $table->foreign('plan_id')->references('id')->on('plans')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('plan_benefits');
     }
 };
