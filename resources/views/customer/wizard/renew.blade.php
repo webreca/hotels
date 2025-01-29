@@ -98,17 +98,17 @@
     <script>
         updateBreakDown = (plan) => {
             let discount_text = '';
-            $("#breakdown-amount").text('₹' + Math.round(plan.price));
+            $("#breakdown-amount").text('₹ ' + Math.round(plan.price));
             if (plan.discount_type == "flat") {
-                discount_text = plan.discount_name+' (₹' + Math.round(plan.discount) + ')';
+                discount_text = plan.discount_name+' (₹ ' + Math.round(plan.discount) + ')';
                 $("#breakdown-discount-type").text(discount_text);
-                $("#breakdown-discount").text('- ₹' + Math.round(plan.discount));
-                $("#breakdown-payable").text('₹' + (Math.round(plan.price - plan.discount)));
+                $("#breakdown-discount").text('- ₹ ' + Math.round(plan.discount));
+                $("#breakdown-payable").text('₹ ' + (Math.round(plan.price - plan.discount)));
             } else {
                 discount_text = plan.discount_name+' (' + Math.round(plan.discount) + ' % Off)';
                 $("#breakdown-discount-type").text(discount_text);
-                $("#breakdown-discount").text('- ₹' + Math.round(plan.price * plan.discount / 100));
-                $("#breakdown-payable").text('₹' + (plan.price - Math.round(plan.price * plan.discount / 100)));
+                $("#breakdown-discount").text('- ₹ ' + Math.round(plan.price * plan.discount / 100));
+                $("#breakdown-payable").text('₹ ' + (plan.price - Math.round(plan.price * plan.discount / 100)));
             }
         }
     </script>
