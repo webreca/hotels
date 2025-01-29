@@ -72,8 +72,8 @@
                                         $discount   = round($plan->discount_type == "flat" ? $plan->discount : $plan->price * $plan->discount / 100);
                                         $total      = round($plan->price - $discount);
                                     @endphp
-                                    <div class="plan-button d-grid gap-2">
-                                        <button class="btn" style="background-color: {{ $plan->color }}">Renew to wizard {{ $plan->name }} for {{ config('app.currency_symbol') }}{{ $total }} <span class="text-decoration-line-through ms-1">{{ config('app.currency_symbol') }}{{ $plan->price }}</span></button>
+                                    <div class="w-100">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#breakdown-modal" class="btn plan-button text-center" style="background-color: {{ $plan->color }}"><span class="breakdown-button">Renew to wizard {{ $plan->name }} for {{ config('app.currency_symbol') }}{{ $total }} <span class="text-decoration-line-through ms-1">{{ config('app.currency_symbol') }}{{ $plan->price }}</span></span></button>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
             </section>
         </main>
     </div>
-    @yield('pop-ups')
+    @include('customer.wizard.breakdown-popup')
     @include('guest.partials.scripts')
 </body>
 

@@ -556,11 +556,18 @@ p.no-span:after {
 }
 .plan-button{
     position: absolute;
-    bottom: 0;
+    bottom: 12px;
+    left: 28px;
 }
-.plan-button button{
+.breakdown-button{
     font-weight: 500 !important;
     font-size: 14px !important;
     line-height: 20px !important;
     color: #212121 !important;
+}
+.wizard-breakdown-image{
+    background-image: url("../images/wizard-breakdown.png");
+    background-size: 100% 100%;
+    height: 150px;
+    width: 100%;
 }
