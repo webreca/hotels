@@ -95,6 +95,7 @@
             </section>
         </main>
     </div>
+    @include('customer.wizard.partials.membership')
     @include('customer.wizard.breakdown-popup')
     @include('guest.partials.scripts')
     <script>
