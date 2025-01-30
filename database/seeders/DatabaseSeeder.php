@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'dialcode' => '+91',
             'phone' => '8800622260'
         ]);
-
+        $this->call(CitySeeder::class);
         $this->call(PlanSeeder::class);
     }
 }
